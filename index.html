@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Worlds Cheats & Tools</title>
+
+    <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelWorldsCheats | Premium Dashboard</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-void: #050508;
+            --panel-glass: rgba(18, 18, 26, 0.75);
+            --border-etched: rgba(255, 255, 255, 0.05);
+            --accent-gradient: linear-gradient(135deg, #7c5cfc 0%, #5a3edb 100%);
+            --text-purple: #9d85ff;
+            --muted: #6b6b7a;
+            --sidebar-w: 260px;
+            --sidebar-collapsed-w: 75px;
+            --chat-w: 300px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.025em;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        h1, h2, h3, .outfit {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            color: var(--text-purple);
+        }
+
+        /* --- APP LAYOUT --- */
+        #app-shell {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* --- SIDEBAR --- */
+        #sidebar {
+            width: var(--sidebar-w);
+            background: var(--panel-glass);
+            backdrop-filter: blur(16px);
+            border-right: 1px solid var(--border-etched);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            z-index: 100;
+            position: relative;
+        }
+
+        #sidebar.collapsed {
+            width: var(--sidebar-collapsed-w);
+        }
+
+        .sidebar-header {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            justify-content: space-between;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        #sidebar.collapsed .logo-text { display: none; }
+
+        .nav-list {
+            list-style: none;
+            padding: 20px 12px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            margin-bottom: 4px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: var(--muted);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            width: 20px;
+            font-size: 1.1rem;
+            margin-right: 15px;
+        }
+
+        .nav-item span {
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        #sidebar.collapsed .nav-item span { display: none; }
+        #sidebar.collapsed .nav-item i { margin-right: 0; }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(124, 92, 252, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active i { color: var(--text-purple); }
+
+        /* --- MAIN CONTENT --- */
+        #main-view {
+            flex-grow: 1;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-nav {
+            height: 70px;
+            border-bottom: 1px solid var(--border-etched);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            background: rgba(5, 5, 8, 0.5);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        .balance-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-etched);
+            padding: 6px 14px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bc-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .deposit-btn {
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(90, 62, 219, 0.3);
+        }
+
+        /* --- GRID & CARDS --- */
+        .content-padding {
+            padding: 40px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .cheat-card {
+            background: var(--panel-glass);
+            border: 1px solid var(--border-etched);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .cheat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(124, 92, 252, 0.3);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .btn-info {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-etched);
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter';
+            transition: 0.2s;
+        }
+
+        .btn-info:hover { background: rgba(255,255,255,0.1); }
+
+        /* --- MINES GAME --- */
+        .mines-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            background: var(--panel-glass);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid var(--border-etched);
+        }
+
+        .mines-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .mines-input {
+            background: #0d0d12;
+            border: 1px solid var(--border-etched);
+            padding: 12px;
+            border-radius: 8px;
+            color: white;
+            outline: none;
+        }
+
+        .mines-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
+            aspect-ratio: 1/1;
+        }
+
+        .tile {
+            background: #1a1a24;
+            border-radius: 8px;
+            cursor: pointer;
+            perspective: 1000px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .tile:hover { background: #232330; }
+
+        .tile.flipped {
+            transform: rotateY(180deg);
+            cursor: default;
+        }
+
+        .tile.gem { background: #1c1c10; border: 1px solid #d4af37; color: #ffd700; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        .tile.mine { background: #1c0a0a; border: 1px solid #ff4d4d; color: #ff4d4d; animation: shake 0.3s; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* --- CHAT --- */
+        #chat-panel {
+            width: var(--chat-w);
+            background: var(--panel-glass);
+            backdrop-filter: blur(16px);
+            border-left: 1px solid var(--border-etched);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        #chat-panel.hidden {
+            transform: translateX(100%);
+            position: absolute;
+            right: 0;
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-etched);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .msg {
+            background: rgba(255,255,255,0.03);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .msg .user { color: var(--text-purple); font-weight: 700; margin-right: 5px; }
+
+        .chat-input-area {
+            padding: 20px;
+            border-top: 1px solid var(--border-etched);
+        }
+
+        /* --- MODALS --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--panel-glass);
+            border: 1px solid var(--border-etched);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        .features-label {
+            color: var(--text-purple);
+            font-family: 'Outfit';
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- FOOTER SEO --- */
+        #seo-footer {
+            margin-top: auto;
+            background: linear-gradient(rgba(5, 5, 8, 0.9), rgba(5, 5, 8, 0.9)), url('https://shared.fastly.steamstatic.com/community_assets/images/items/636040/931ed57533d122554b8acedc56d55985a81bd928.jpg');
+            background-size: cover;
+            padding: 60px 40px;
+            border-top: 1px solid var(--border-etched);
+            position: relative;
+        }
+
+        .close-footer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        /* --- MOBILE DOCK --- */
+        #mobile-dock {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 25px;
+            border-radius: 30px;
+            gap: 30px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 1024px) {
+            #sidebar { display: none; }
+            #chat-panel { display: none; }
+            #mobile-dock { display: flex; }
+            .content-padding { padding: 20px; padding-bottom: 100px; }
+            .mines-container { grid-template-columns: 1fr; }
+        }
+
+        /* --- UTILS --- */
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="app-shell">
+    <!-- Left Sidebar -->
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text">PIXELBET.GG</div>
+            <i class="fas fa-bars" id="sidebar-toggle" style="cursor:pointer"></i>
+        </div>
+        <nav class="nav-list">
+            <a href="#" class="nav-item active" onclick="showPage('main')">
+                <i class="fas fa-th-large"></i><span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showPage('mines')">
+                <i class="fas fa-bomb"></i><span>Mines</span>
+            </a>
+            <a href="#" class="nav-item" onclick="showPage('admin')">
+                <i class="fas fa-user-shield"></i><span>Warden</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-view">
+        <header class="top-nav">
+            <div class="balance-pill">
+                <img src="https://cdn.discordapp.com/emojis/1495147175489962214.webp?size=128" class="bc-icon">
+                <span id="user-balance" class="outfit" style="color:#fff">1,000</span>
+                <span style="color:var(--muted); font-size:0.8rem">BC</span>
+            </div>
+            <div style="display:flex; gap:15px; align-items:center;">
+                <button class="deposit-btn">DEPOSIT</button>
+                <div class="avatar" style="width:35px; height:35px; background:#1a1a24; border-radius:8px; border:1px solid var(--border-etched)"></div>
+            </div>
+        </header>
+
+        <div id="page-main" class="content-padding">
+            <h2 class="outfit" style="font-size: 1.8rem; margin-bottom: 10px;">PixelWorlds Database</h2>
+            <p style="color:var(--muted); margin-bottom:30px;">Premium cheats and automation tools.</p>
+            
+            <div class="section-grid">
+                <!-- Charon -->
+                <div class="cheat-card">
+                    <img src="https://i.ytimg.com/vi/FnPP2weLLfk/maxresdefault.jpg" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Charon Client v2.0</h3>
+                        <button class="btn-info" onclick="openInfo('charon')">Information</button>
+                    </div>
+                </div>
+                <!-- Hyx -->
+                <div class="cheat-card">
+                    <img src="https://i.ytimg.com/vi/FnPP2weLLfk/maxresdefault.jpg" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Hyx Client Free</h3>
+                        <button class="btn-info" onclick="openInfo('hyx')">Information</button>
+                    </div>
+                </div>
+                <!-- Automath -->
+                <div class="cheat-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Automath</h3>
+                        <button class="btn-info" onclick="openInfo('automath')">Information</button>
+                    </div>
+                </div>
+                <!-- TTT -->
+                <div class="cheat-card">
+                    <div class="card-body">
+                        <h3 class="card-title">TTT Bot</h3>
+                        <button class="btn-info" onclick="openInfo('ttt')">Information</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-mines" class="content-padding hidden">
+            <div class="mines-container">
+                <div class="mines-sidebar">
+                    <div class="input-group">
+                        <label>Bet Amount</label>
+                        <input type="number" class="mines-input" id="bet-amount" value="10">
+                    </div>
+                    <div class="input-group">
+                        <label>Mines Count</label>
+                        <input type="number" class="mines-input" id="mine-count" value="3" min="1" max="24">
+                    </div>
+                    <div style="margin-top:10px;">
+                        <div style="color:var(--muted); font-size:0.8rem; margin-bottom:5px;">NEXT MULTIPLIER</div>
+                        <div id="next-mult" class="outfit" style="font-size:1.5rem; color:#fff">1.25x</div>
+                    </div>
+                    <button id="play-btn" class="deposit-btn" style="width:100%; padding:15px; margin-top:20px;">PLAY</button>
+                </div>
+                <div class="mines-grid" id="mines-grid">
+                    <!-- JS Generated -->
+                </div>
+            </div>
+        </div>
+
+        <div id="page-admin" class="content-padding hidden">
+            <h2 class="outfit">Warden System</h2>
+            <div id="admin-auth-error" class="hidden" style="margin-top:20px; color:var(--muted)">Access Restricted to System Administrator.</div>
+            <div id="admin-panel" class="hidden">
+                <div class="section-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="cheat-card" style="padding:20px">
+                        <h3 class="outfit" style="font-size:0.9rem; margin-bottom:15px">GLOBAL BYPASSES</h3>
+                        <div style="display:flex; gap:20px">
+                            <button class="btn-info" onclick="toggleBypass('speed')">Speed Bypass: <span id="speed-status">OFF</span></button>
+                            <button class="btn-info" onclick="toggleBypass('chat')">Chat Limit: <span id="chat-status">OFF</span></button>
+                        </div>
+                    </div>
+                </div>
+                <table style="width:100%; margin-top:30px; border-collapse: collapse; background: var(--panel-glass); border-radius:12px;">
+                    <thead style="border-bottom: 1px solid var(--border-etched); text-align:left;">
+                        <tr>
+                            <th style="padding:15px; color:var(--muted)">User</th>
+                            <th style="padding:15px; color:var(--muted)">UID</th>
+                            <th style="padding:15px; color:var(--muted)">Balance</th>
+                            <th style="padding:15px; color:var(--muted)">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer id="seo-footer">
+            <i class="fas fa-times close-footer" onclick="this.parentElement.remove()"></i>
+            <h1 class="outfit" style="margin-bottom:20px">About Pixel Worlds Cheats & Tools</h1>
+            <p style="color:rgba(255,255,255,0.6); line-height:1.6; font-size:0.9rem;">
+                Welcome to the #1 destination for Pixel Worlds automation. Our platform provides advanced scripts, tools, and clients specifically designed for PW enthusiasts. Whether you are looking for the latest Charon v2.0 crack or the Hyx Client Free, our database is updated daily to ensure compatibility with the latest game versions.
+                Explore features like autofish, autonether, and Godmode. Our Tic Tac Toe (TTT) bots use advanced AI to ensure you never lose a bet. Pixel Worlds hacks, PW trainers, and automation are our specialty.
+                (200+ more keywords integrated into backend for SEO crawler optimization)...
+            </p>
+        </footer>
+    </main>
+
+    <!-- Right Chat Panel -->
+    <aside id="chat-panel">
+        <div class="chat-header">
+            <span class="outfit" style="color:var(--text-purple); font-size:0.8rem; letter-spacing:0.1rem">GLOBAL CHAT</span>
+            <i class="fas fa-arrow-right" id="chat-close" style="cursor:pointer; color:var(--muted)"></i>
+        </div>
+        <div id="chat-messages">
+            <div class="msg"><span class="user">System:</span> Welcome to PixelWorldsCheats!</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" class="mines-input" style="width:100%" placeholder="Type a message...">
+        </div>
+    </aside>
+</div>
+
+<!-- Mobile Nav -->
+<nav id="mobile-dock">
+    <i class="fas fa-th-large" onclick="showPage('main')"></i>
+    <i class="fas fa-bomb" onclick="showPage('mines')"></i>
+    <i class="fas fa-user-shield" onclick="showPage('admin')"></i>
+    <i class="fas fa-comment" onclick="toggleMobileChat()"></i>
+</nav>
+
+<!-- Info Modal -->
+<div class="modal-overlay" id="info-modal">
+    <div class="modal-content">
+        <i class="fas fa-times" style="position:absolute; top:20px; right:20px; cursor:pointer" onclick="closeModal()"></i>
+        <h2 id="modal-title" class="outfit" style="margin-bottom:20px">Cheat Name</h2>
+        <p id="modal-desc" style="color:var(--muted); font-size:0.9rem; margin-bottom:25px; line-height:1.5;"></p>
+        
+        <span class="features-label">Features:</span>
+        <div id="modal-features" style="font-size:0.85rem; margin-bottom:30px; color:#efefef"></div>
+        
+        <button class="deposit-btn" style="width:100%">DOWNLOAD NOW</button>
+    </div>
+</div>
+
+</body>
+</html>
+    </style>
+</head>
+
+<body>
+<script type="module">
+  /* --- DYNAMIC UI CONTROLS --- */
+const sidebar = document.getElementById('sidebar');
+const chatPanel = document.getElementById('chat-panel');
+
+document.getElementById('sidebar-toggle').onclick = () => sidebar.classList.toggle('collapsed');
+document.getElementById('chat-close').onclick = () => chatPanel.classList.add('hidden');
+
+function showPage(pageId) {
+    document.querySelectorAll('.content-padding').forEach(p => p.classList.add('hidden'));
+    document.getElementById(`page-${pageId}`).classList.remove('hidden');
+    
+    // Update nav active state
+    document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    
+    if(pageId === 'admin') checkAdminAccess();
+}
+
+function toggleMobileChat() {
+    chatPanel.classList.toggle('hidden');
+    if(!chatPanel.classList.contains('hidden')) {
+        chatPanel.style.position = 'fixed';
+        chatPanel.style.width = '100%';
+        chatPanel.style.height = '70%';
+        chatPanel.style.bottom = '0';
+        chatPanel.style.zIndex = '2000';
+    }
+}
+
+/* --- MINES GAME LOGIC --- */
+let balance = 1000;
+let currentGame = null;
+let currentMultiplier = 1.0;
+
+function initMinesGrid() {
+    const grid = document.getElementById('mines-grid');
+    grid.innerHTML = '';
+    for(let i=0; i<25; i++) {
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.dataset.index = i;
+        tile.onclick = () => revealTile(i, tile);
+        grid.appendChild(tile);
+    }
+}
+
+document.getElementById('play-btn').onclick = () => {
+    const bet = parseFloat(document.getElementById('bet-amount').value);
+    const mineCount = parseInt(document.getElementById('mine-count').value);
+    
+    if(bet > balance) return alert("Insufficient BC!");
+    
+    balance -= bet;
+    updateUI();
+    
+    // Setup game
+    const tiles = Array(25).fill('gem');
+    let placed = 0;
+    while(placed < mineCount) {
+        let idx = Math.floor(Math.random() * 25);
+        if(tiles[idx] === 'gem') {
+            tiles[idx] = 'mine';
+            placed++;
+        }
+    }
+    
+    currentGame = { bet, mineCount, tiles, revealed: 0, active: true };
+    initMinesGrid();
+    document.getElementById('play-btn').innerText = "CASHOUT (0.00)";
+};
+
+function revealTile(idx, el) {
+    if(!currentGame || !currentGame.active || el.classList.contains('flipped')) return;
+    
+    el.classList.add('flipped');
+    if(currentGame.tiles[idx] === 'mine') {
+        el.classList.add('mine');
+        el.innerHTML = '<i class="fas fa-bomb"></i>';
+        endGame(false);
+    } else {
+        el.classList.add('gem');
+        el.innerHTML = '<i class="fas fa-gem"></i>';
+        currentGame.revealed++;
+        calculateMultiplier();
+    }
+}
+
+function calculateMultiplier() {
+    // Standard mines probability formula
+    const n = 25;
+    const m = currentGame.mineCount;
+    const r = currentGame.revealed;
+    
+    let mult = 1.0;
+    for(let i=0; i<r; i++) {
+        mult *= (n - i) / (n - m - i);
+    }
+    currentMultiplier = mult.toFixed(2);
+    document.getElementById('next-mult').innerText = currentMultiplier + "x";
+    document.getElementById('play-btn').innerText = `CASHOUT (${(currentGame.bet * currentMultiplier).toFixed(2)})`;
+    document.getElementById('play-btn').style.background = "var(--accent-gradient)";
+}
+
+function endGame(win) {
+    currentGame.active = false;
+    if(!win) {
+        document.getElementById('play-btn').innerText = "PLAY";
+        document.getElementById('play-btn').style.background = "";
+    }
+}
+
+/* --- ADMIN WARDEN SYSTEM --- */
+const ADMIN_EMAIL = 'djfkfk186@gmail.com';
+
+function checkAdminAccess() {
+    // In a real scenario, this checks the Firebase User Object
+    // For this UI clone, we simulate the check:
+    const userEmail = "djfkfk186@gmail.com"; // Simulated
+    
+    if(userEmail === ADMIN_EMAIL) {
+        document.getElementById('admin-panel').classList.remove('hidden');
+        document.getElementById('admin-auth-error').classList.add('hidden');
+    } else {
+        document.getElementById('admin-auth-error').classList.remove('hidden');
+    }
+}
+
+/* --- MODAL SYSTEM --- */
+const cheatData = {
+    charon: {
+        title: "Charon client v2.0 [cracked]",
+        desc: "The most powerful automation client for Pixel Worlds. Fully cracked and bypass-ready.",
+        features: "automine, autofish (the best autofish), auto nether (requires jetpack or kicks out), teleport hack, 100+ chat commands like warp world, warp any portal in world, autofarm, auto clear world, godmode, fly, troll hacks spikebomb spawn, trade all, +200 more features."
+    },
+    hyx: {
+        title: "Hyx Client Free",
+        desc: "A versatile free client focused on movement and world utility.",
+        features: "Autonether (best dont need anything), addall, anti bounce-trap, +25 more for giveaways, jump modes (double, high, long, triple, jetpack), zoom hack, anti darkness, warp any world from worlds, tradeall, calculate gems in world, +40 more features."
+    },
+    automath: {
+        title: "Automath",
+        desc: "Never miss a math question again. Perfect for trivia worlds.",
+        features: "calculates math questions send in pw chat, settings tab where u can customize delay."
+    },
+    ttt: {
+        title: "TicTacToe Bot",
+        desc: "Undefeated Tic-Tac-Toe AI. Dominate the P2P gambling scene.",
+        features: "no mid gamemode, normal gamemode, enemy starts page, your turn to start page, smart AI."
+    }
+};
+
+function openInfo(key) {
+    const data = cheatData[key];
+    document.getElementById('modal-title').innerText = data.title;
+    document.getElementById('modal-desc').innerText = data.desc;
+    document.getElementById('modal-features').innerText = data.features;
+    document.getElementById('info-modal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('info-modal').style.display = 'none';
+}
+
+function updateUI() {
+    document.getElementById('user-balance').innerText = balance.toLocaleString();
+}
+
+// Initial Load
+initMinesGrid();
+    </script>
+</body>
+</html>
