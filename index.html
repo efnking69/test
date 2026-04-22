@@ -638,20 +638,20 @@ nav{
     </div>
     <div class="nav-right">
       <a href="https://discord.gg/QV69upuxbg" target="_blank" style="text-decoration:none">
-        <button class="btn btn-discord btn-sm"><i class="fab fa-discord"></i> Discord</button>
+        <button class="btn btn-discord btn-sm"><i class="fab fa-discord"></i> discord server</button>
       </a>
       <!-- Balance badge — shown when logged in -->
       <div id="balance-display" onclick="showPage('minigames')">
-        <span class="bc-icon">🪙</span>
+        <span class="bc-icon"></span>
         <span id="balance-amount">0</span> BC
       </div>
       <div id="nav-guest">
         <button class="btn btn-ghost btn-sm" onclick="openModal('login-modal')">Log In</button>
-        <button class="btn btn-primary btn-sm" onclick="openModal('reg-modal')">Sign Up</button>
+        <button class="btn btn-primary btn-sm" onclick="openModal('reg-modal')">register</button>
       </div>
       <div id="nav-user">
         <span class="user-tag" id="user-tag">—</span>
-        <button class="btn btn-danger btn-sm" onclick="doSignOut()">Sign Out</button>
+        <button class="btn btn-danger btn-sm" onclick="doSignOut()">log out ): </button>
       </div>
     </div>
   </nav>
@@ -703,29 +703,29 @@ nav{
           <div class="card">
             <span class="card-badge">New</span>
             <img class="card-img" src="https://cdn.discordapp.com/attachments/1495783572735262911/1496170026158260364/image.png?ex=69e8e86b&is=69e796eb&hm=91c64bb8c69318d8c42565b0c38edd3cd55e8446622235632bbf522c5d280782&" alt="Charon" onerror="this.style.background='#18181f';this.removeAttribute('src')">
-            <div class="card-body"><div class="card-name">Charon v2.0</div><div class="card-subtitle">Pixelworldscheats</div></div>
+            <div class="card-body"><div class="card-name">charon v2.0 [best cracked]</div><div class="card-subtitle">Pixelworldscheats</div></div>
             <div class="card-footer"><button class="btn btn-ghost btn-sm" onclick="openDetail('charon')">Information</button></div>
           </div>
           <div class="card">
             <img class="card-img" src="https://cdn.discordapp.com/attachments/1495365239489957962/1495365366938079424/image.png?ex=69e9ef86&is=69e89e06&hm=cef7c89730fecdeadf415a3997c4857ac7a78da6e63674ffa3e9c1e5805f81da&" alt="AutoMath" onerror="this.style.background='#18181f';this.removeAttribute('src')">
-            <div class="card-body"><div class="card-name">AutoMath</div><div class="card-subtitle">Pixelworldscheats</div></div>
+            <div class="card-body"><div class="card-name">AutoMath pixelworlds [free]</div><div class="card-subtitle">Pixelworldscheats</div></div>
             <div class="card-footer"><button class="btn btn-ghost btn-sm" onclick="openDetail('automath')">Information</button></div>
           </div>
           <div class="card">
             <img class="card-img" src="https://cdn.discordapp.com/attachments/1492915866797342976/1495336661331214366/image.png?ex=69e9d4ca&is=69e8834a&hm=7a66d41fc4259f4e7f8e3c24d486741762b2aebe81c0d44e52e59915cbb8e482&" alt="TTT Bot" onerror="this.style.background='#18181f';this.removeAttribute('src')">
-            <div class="card-body"><div class="card-name">TTT Bot</div><div class="card-subtitle">Pixelworldscheats</div></div>
+            <div class="card-body"><div class="card-name">Tictactoe bot v3.1 [free html]</div><div class="card-subtitle">Pixelworldscheats</div></div>
             <div class="card-footer"><button class="btn btn-ghost btn-sm" onclick="openDetail('tictactoe')">Information</button></div>
           </div>
           <div class="card">
             <img class="card-img" src="https://i.ytimg.com/vi/FnPP2weLLfk/maxresdefault.jpg" alt="Hyx" onerror="this.style.background='#18181f';this.removeAttribute('src')">
-            <div class="card-body"><div class="card-name">Hyx Client Free</div><div class="card-subtitle">Pixelworldscheats</div></div>
+            <div class="card-body"><div class="card-name">Hyx Client Free [good autonether]</div><div class="card-subtitle">Pixelworldscheats</div></div>
             <div class="card-footer"><button class="btn btn-ghost btn-sm" onclick="openDetail('hyx')">Information</button></div>
           </div>
         </div>
         <div class="seo-footer" id="seo-footer">
           <div class="seo-footer-inner">
             <div class="seo-footer-header">
-              <h1 class="seo-footer-title">About Pixel Worlds Cheats &amp; Tools</h1>
+              <h1 class="seo-footer-title">About pixelworldscheats.xyz &amp; Tools</h1>
               <button class="seo-footer-close" onclick="document.getElementById('seo-footer').classList.add('collapsed')"><i class="fas fa-times"></i></button>
             </div>
             <p>Welcome to pixelworldscheats.xyz, the ultimate community hub for Pixel Worlds enthusiasts. Our platform provides a centralized space for coder discussion, sharing the latest PW cheats, tools, and scripts. Join the #1 destination for Pixel Worlds players looking for Charon Client, Hyx Client, PW autofarm tools, Bytecoin Mines, and more free resources.</p>
@@ -749,7 +749,7 @@ nav{
         <div id="account-guest" style="display:none">
           <div class="account-box">
             <div class="account-box-title">Not logged in</div>
-            <div class="account-box-sub">Create an account to access downloads</div>
+            <div class="account-box-sub">Create an account to access all features</div>
             <div style="display:flex;gap:8px;margin-top:4px">
               <button class="btn btn-primary btn-sm" onclick="openModal('login-modal')">Log In</button>
               <button class="btn btn-ghost btn-sm" onclick="openModal('reg-modal')">Sign Up</button>
@@ -795,7 +795,7 @@ nav{
               <div class="mines-field-label">Bet Amount</div>
               <div class="mines-bet-row">
                 <input class="mines-bet-input" id="mines-bet" type="number" min="1" placeholder="Amount">
-                <span class="mines-coin-icon" title="Use all balance" onclick="setMaxBet()">🪙</span>
+                <span class="mines-coin-icon" title="Use all balance" onclick="setMaxBet()"></span>
                 <button class="mines-bet-half" onclick="halveBet()">½</button>
                 <button class="mines-bet-2x" onclick="doubleBet()">2x</button>
               </div>
@@ -834,7 +834,7 @@ nav{
           <!-- MIDDLE — Grid -->
           <div class="mines-grid-wrap">
             <div class="mines-winpill" id="mines-winpill">
-              <span>🪙</span>
+              <span></span>
               <span id="mines-winpill-val">0.00 BC</span>
             </div>
             <div class="mines-grid g25" id="mines-grid"></div>
@@ -992,12 +992,12 @@ nav{
 <!-- JAIL OVERLAY -->
 <div id="page-jail">
   <img class="jail-gif" src="https://media.discordapp.net/attachments/984502793970802770/1190554316621226165/giphy.gif?ex=69e9c79c&is=69e8761c&hm=d45873b79d055514240dbef3818992e5ac9858db3f9c6463074eff772e1ee8c6&" alt="Jail">
-  <div class="jail-title">🔒 You Are In Jail</div>
+  <div class="jail-title">You Are In Jail because you were being a retard</div>
   <div class="jail-sub">dont do that again, you are in jail</div>
   <div class="jail-timer" id="jail-timer">--:--:--</div>
-  <div class="jail-timer-label">remaining until release</div>
+  <div class="jail-timer-label">remaining time until release</div>
   <div class="jail-admin-release" id="jail-admin-release" style="display:none">
-    <div class="jail-admin-release-title">⚡ Admin: Release User Early</div>
+    <div class="jail-admin-release-title"> Admin: Release User Early</div>
     <div class="jail-admin-input-row">
       <input class="admin-input" id="jail-release-email" type="email" placeholder="user@example.com to release">
       <button class="btn btn-primary btn-sm" onclick="adminReleaseUser()">Release</button>
@@ -1060,7 +1060,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Start loading bar animation
   requestAnimationFrame(() => {
     bar.style.width = '100%';
-    label.textContent = 'Ready!';
+    label.textContent = 'loading...';
   });
   // Hide splash after 2.2s (bar takes 2s + small buffer)
   setTimeout(() => {
@@ -1256,7 +1256,7 @@ window.openDetail=(key)=>{
     dlBtn.onclick=()=>{if(c.url&&c.url!=='#')window.open(c.url,'_blank');};
   }else{
     dlBtn.className='btn btn-locked';dlBtn.style.minWidth='200px';
-    dlBtn.innerText='🔒 Login to Download';
+    dlBtn.innerText=' login to download';
     dlBtn.onclick=()=>{showPage('main');openModal('login-modal');notify('login-notifs','Please log in to download.','info');};
   }
   showPage('detail');
